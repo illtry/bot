@@ -489,17 +489,17 @@ def handle_text(message):
                                           "alexander.s.alekseev@tele2.ru")
 
 
-@server.route("442569088:AAFieVvjqF-ttP3DVy6_O5DGKckWPf_MadI", methods=['POST'])
+@server.route("/bot", methods=['POST'])
 def getMessage():
     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
     return "!", 200
 
+
 @server.route("/")
 def webhook():
     bot.remove_webhook()
-    bot.set_webhook(url="https://telegram1v1.herokuapp.com/442569088:AAFieVvjqF-ttP3DVy6_O5DGKckWPf_MadI")
+    bot.set_webhook(url="https://telegram1v1.herokuapp.com/bot")
     return "!", 200
 
 server.run(host="0.0.0.0", port=os.environ.get('PORT', 5000))
 server = Flask(__name__)
-
