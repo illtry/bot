@@ -513,7 +513,7 @@ def handle_text(message):
                                               ' условием правоотношений'
                                               ', возникающих между оператором связи и гражданином при'
                                               ' оказании услуг связи.\n', parse_mode="HTML")
-            user_markup = telebot.types.ReplyKeyboardMarkup()
+            user_markup = telebot.types.ReplyKeyboardMarkup(True, False)
             user_markup.row('В ФЗ о Связи')
             bot.send_message(message.from_user.id, '...', reply_markup=user_markup)
             botan.track(botan_key, message.chat.id, message, 'Почему необходим паспорт - основа')
