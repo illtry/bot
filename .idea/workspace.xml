@@ -21,8 +21,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3553">
-              <caret line="209" column="99" lean-forward="true" selection-start-line="209" selection-start-column="99" selection-end-line="209" selection-end-column="99" />
+            <state relative-caret-position="560">
+              <caret line="487" column="45" lean-forward="true" selection-start-line="487" selection-start-column="45" selection-end-line="487" selection-end-column="45" />
               <folding>
                 <element signature="e#25#39#0" expanded="true" />
               </folding>
@@ -65,6 +65,7 @@
       <find>remove</find>
       <find>в главное меню</find>
       <find>в главное мен</find>
+      <find>Нестандарт</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -711,8 +712,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3553">
-          <caret line="209" column="99" lean-forward="true" selection-start-line="209" selection-start-column="99" selection-end-line="209" selection-end-column="99" />
+        <state relative-caret-position="560">
+          <caret line="487" column="45" lean-forward="true" selection-start-line="487" selection-start-column="45" selection-end-line="487" selection-end-column="45" />
           <folding>
             <element signature="e#25#39#0" expanded="true" />
           </folding>

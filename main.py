@@ -172,7 +172,7 @@ def handle_text(message):
                     user_markup.row('Смена владельца', 'Корректировка РФА')
                     user_markup.row('Закрытие абонента', 'Возврат средств')
                     user_markup.row('Рег. форма', 'Восст закрыт ном')
-                    user_markup.row('Скрыть', 'Помощь')
+                    user_markup.row('Скрыть', 'Нестандарт')
                     bot.send_message(message.from_user.id, 'Добро пожаловать..', reply_markup=user_markup)
 
         if message.text == 'Скрыть':
