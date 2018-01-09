@@ -2,8 +2,9 @@
 # Telegram bot для ОБО
 
 import telebot
-import botan as botan
-import time
+import botan
+import requests
+import json
 import os
 from flask import Flask, request
 
