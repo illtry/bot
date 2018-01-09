@@ -7,7 +7,7 @@ import time
 import os
 from flask import Flask, request
 
-token = "534143561:AAG6Z8Renjyrg3VBgwaAx2flaTahf_a5vAI"
+token = "504515728:AAHWnfcPlz8VZ3SaPKEEJ3swFo8DjcdgKtg"
 botan_key = "d6c0f3f2-3af6-4cfe-ab99-75d6cd905db7"
 ids = "141240553, 28101889, 431189131, 132565429, 205582007, 121196138, 356620991, 198602379, 96930603," \
       " 45781408, 120976534, 205582007, 454919985, 453312645, 387800936, 340635048, 411517564, 453693657," \
@@ -50,7 +50,7 @@ def handle_start(message):
     user_markup.row('Смена владельца', 'Корректировка РФА')
     user_markup.row('Закрытие абонента', 'Возврат средств')
     user_markup.row('Рег. форма', 'Восст закрыт ном')
-    user_markup.row('Скрыть', 'Нестандарт')
+    user_markup.row('Подключение b2b', 'Нестандарт')
     bot.send_message(message.from_user.id, 'Добро пожаловать.. ', reply_markup=user_markup)
 
 
@@ -187,12 +187,70 @@ def handle_text(message):
                     user_markup.row('Смена владельца', 'Корректировка РФА')
                     user_markup.row('Закрытие абонента', 'Возврат средств')
                     user_markup.row('Рег. форма', 'Восст закрыт ном')
-                    user_markup.row('Скрыть', 'Нестандарт')
+                    user_markup.row('Подключение b2b', 'Нестандарт')
                     bot.send_message(message.from_user.id, 'Добро пожаловать..', reply_markup=user_markup)
 
-        if message.text == 'Скрыть':
+        if message.text == 'Подключение b2b':
+                    user_markup = telebot.types.ReplyKeyboardMarkup()
+                    user_markup.row('Юридич. лицо/организация')
+                    user_markup.row('ИП')
+                    user_markup.row('В главное меню')
+                    bot.send_message(message.from_user.id, 'Выбери нужный пункт', reply_markup=user_markup)
+
+        if message.text == 'Юридич. лицо/организация':
+                    user_markup = telebot.types.ReplyKeyboardMarkup()
+                    user_markup.row('Необходимые документы')
+#                   user_markup.row('Процедура подключения')
+                    user_markup.row('В главное меню')
+                    bot.send_message(message.from_user.id, 'Выбери нужный пункт', reply_markup=user_markup)
+
+        if message.text == 'Необходимые документы':
+            bot.send_message(message.chat.id, "<b>Необходимые документы:</b>\n"
+                                                      "1. Оригинал или копия свидетельства о государственной"
+                                                      " регистрации юридического лица.\n"
+                                                      "2. Оригинал или копия свидетельства о постановке на учет"
+                                                      " российской организации в налоговом органе по месту ее"
+                                                      " нахождения и/или уведомления о постановке на"
+                                                      " учет в налоговом органе.\n"
+                                                      "3. Оригинал, копия или выписка из решения или протокола"
+                                                      " юридического лица об избрании руководителя юридического лица.\n"
+                                                      "4. Оригинал доверенности на заключение договора об оказании"
+                                                      " услуг связи с Tele2. Предоставляется при подписании договора"
+                                                      " через представителя, не являющегося руководителем юридического"
+                                                      " лица. Рекомендуемая форма доверенности Tele2.\n"
+                                                      "5. Документ, удостоверяющий личность лица, подписывающего"
+                                                      " договор об оказании услуг связи.", parse_mode="HTML")
             hide_markup = telebot.types.ReplyKeyboardRemove()
-            bot.send_message(message.from_user.id, 'Нажмите /start для возврата меню', reply_markup=hide_markup)
+            bot.send_message(message.from_user.id, 'Нажмите /start для возврата в главное меню',
+                             reply_markup=hide_markup)
+            botan.track(botan_key, message.chat.id, message, 'Подключение b2b/Юридическое лицо/Необходимые документы')
+
+        if message.text == 'ИП':
+                    user_markup = telebot.types.ReplyKeyboardMarkup()
+                    user_markup.row('Список документов')
+#                    user_markup.row('Процесс подключения')
+                    user_markup.row('В главное меню')
+                    bot.send_message(message.from_user.id, 'Выбери нужный пункт', reply_markup=user_markup)
+
+        if message.text == 'Список документов':
+            bot.send_message(message.chat.id, "<b>Список документов:</b>\n"
+                                              "1. Оригинал или копия свидетельства о государственной"
+                                              " регистрации физического лица в качестве"
+                                              " индивидуального предпринимателя\n"
+                                              "2. Оригинал или копия свидетельства о постановке на учет физического"
+                                              " лица в налоговом органе и/или уведомления о постановке"
+                                              " на учет в налоговом органе.\n"
+                                              "3. Оригинал доверенности на заключение договора об оказании"
+                                              " услуг связи с Tele2, удостоверенной нотариусом. Предоставляется при"
+                                              " подписании договора через представителя индивидуального"
+                                              " предпринимателя. Рекомендуемая форма доверенности Tele2. \n"
+                                              "4.	Документ, удостоверяющий личность лица, подписывающего"
+                                              " договор об оказании услуг связи.", parse_mode="HTML")
+            hide_markup = telebot.types.ReplyKeyboardRemove()
+            bot.send_message(message.from_user.id, 'Нажмите /start для возврата в главное меню',
+                             reply_markup=hide_markup)
+
+
 
         if message.text == 'Помощь' or message.text == 'help' or message.text == '/help' or message.text == 'подсказка' or message.text == 'контакты' or message.text == 'контакт':
             bot.send_message(message.chat.id, "Мои возможности весьма специфичны. Но я работаю над собой.\n"
