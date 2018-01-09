@@ -59,7 +59,7 @@ def handle_text(message):
     log(message)
     if str(message.from_user.id) in ids:
         if message.text == "Смена владельца":
-            user_markup = telebot.types.ReplyKeyboardMarkup()
+            user_markup = telebot.types.ReplyKeyboardMarkup(True, False)
             user_markup.row('В случае смерти частного клиента')
             user_markup.row('С частного на частного клиента')
             user_markup.row('В главное меню')
@@ -70,7 +70,7 @@ def handle_text(message):
                                                       "после"
                                                       " его вступления в права наследования (не ранее 6 месяцев с даты"
                                                       " смерти).")
-                    user_markup = telebot.types.ReplyKeyboardMarkup()
+                    user_markup = telebot.types.ReplyKeyboardMarkup(True, False)
                     user_markup.row('Право наследования ещё не наступило')
                     user_markup.row('После вступления в права наследования')
                     user_markup.row('Назад к выбору типа смены')
@@ -124,7 +124,7 @@ def handle_text(message):
                                                       ' + номера документа удостоверяющего личность\nУточни в'
                                                       ' карточке клиента, был ли номер '
                                                       'ранее перенесен из другой сети по MNP')
-                    user_markup = telebot.types.ReplyKeyboardMarkup()
+                    user_markup = telebot.types.ReplyKeyboardMarkup(True, False)
                     user_markup.row('Номер НЕ был перенесен из другой сети')
                     user_markup.row('Номер БЫЛ перенесен из другой сети')
                     user_markup.row('Назад к выбору типа смены')
@@ -176,7 +176,7 @@ def handle_text(message):
                     botan.track(botan_key, message.chat.id, message, 'Номер клиента БЫЛ перенесен из другой сети')
 
         if message.text == 'Назад к выбору типа смены':
-                    user_markup = telebot.types.ReplyKeyboardMarkup()
+                    user_markup = telebot.types.ReplyKeyboardMarkup(True, False)
                     user_markup.row('В случае смерти частного клиента')
                     user_markup.row('С частного на частного клиента')
                     user_markup.row('В главное меню')
@@ -191,14 +191,14 @@ def handle_text(message):
                     bot.send_message(message.from_user.id, 'Добро пожаловать..', reply_markup=user_markup)
 
         if message.text == 'Подключение b2b':
-                    user_markup = telebot.types.ReplyKeyboardMarkup()
+                    user_markup = telebot.types.ReplyKeyboardMarkup(True, False)
                     user_markup.row('Юридич. лицо/организация')
                     user_markup.row('ИП')
                     user_markup.row('В главное меню')
                     bot.send_message(message.from_user.id, 'Выбери нужный пункт', reply_markup=user_markup)
 
         if message.text == 'Юридич. лицо/организация':
-                    user_markup = telebot.types.ReplyKeyboardMarkup()
+                    user_markup = telebot.types.ReplyKeyboardMarkup(True, False)
                     user_markup.row('Необходимые документы')
 #                   user_markup.row('Процедура подключения')
                     user_markup.row('В главное меню')
@@ -226,7 +226,7 @@ def handle_text(message):
             botan.track(botan_key, message.chat.id, message, 'Подключение b2b/Юридическое лицо/Необходимые документы')
 
         if message.text == 'ИП':
-                    user_markup = telebot.types.ReplyKeyboardMarkup()
+                    user_markup = telebot.types.ReplyKeyboardMarkup(True, False)
                     user_markup.row('Список документов')
 #                    user_markup.row('Процесс подключения')
                     user_markup.row('В главное меню')
@@ -318,7 +318,7 @@ def handle_text(message):
                                                   "Если необходимо изменить владельца номера, то"
                                                   " следуй инструкции по Переоформлению номера"
                                                   " с одного частного клиента на другого.", parse_mode="HTML")
-            user_markup = telebot.types.ReplyKeyboardMarkup()
+            user_markup = telebot.types.ReplyKeyboardMarkup(True, False)
             user_markup.row('Исправление очевидной ошибки')
             user_markup.row('Смена документа / не очевидная ошибка')
             user_markup.row('В главное меню')
@@ -386,7 +386,7 @@ def handle_text(message):
             botan.track(botan_key, message.chat.id, message, 'Рег. форма')
 
         if message.text == 'Возврат средств':
-            user_markup = telebot.types.ReplyKeyboardMarkup()
+            user_markup = telebot.types.ReplyKeyboardMarkup(True, False)
             user_markup.row('Ошибочный платеж')
             user_markup.row('Остаток средств')
             user_markup.row('Запрет возврата аванс. платежа')
@@ -508,7 +508,7 @@ def handle_text(message):
                                                   "    Проверь владельца номера\n"
                                                   "    Узнай категорию закрытого номера: обычный, серебряный или золотой\n"
                                                   "    Принадлежность закрытого номера региону\n")
-            user_markup = telebot.types.ReplyKeyboardMarkup()
+            user_markup = telebot.types.ReplyKeyboardMarkup(True, False)
             user_markup.row('Клиент в домашнем регионе')
             user_markup.row('Клиент в роуминге')
             user_markup.row('В главное меню')
@@ -553,7 +553,7 @@ def handle_text(message):
             botan.track(botan_key, message.chat.id, message, 'Клиент в роуминге')
 
         if message.text == 'Нестандарт':
-            user_markup = telebot.types.ReplyKeyboardMarkup()
+            user_markup = telebot.types.ReplyKeyboardMarkup(True, False)
             user_markup.row('Почему необходим паспорт')
             user_markup.row('Не прошла заявка по MNP')
             user_markup.row('Плата за молчание')
