@@ -20,22 +20,10 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="720" column="219" lean-forward="false" selection-start-line="720" selection-start-column="219" selection-end-line="720" selection-end-column="219" />
+            <state relative-caret-position="627">
+              <caret line="584" column="61" lean-forward="true" selection-start-line="584" selection-start-column="61" selection-end-line="584" selection-end-column="61" />
               <folding>
                 <element signature="e#25#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="botan.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/botan.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="38" column="20" lean-forward="false" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
-              <folding>
-                <element signature="e#106#121#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -71,6 +59,7 @@
       <find>hide_markup = telebot.types.ReplyKeyboardRemove</find>
       <find>user_markup = telebot.types.ReplyKeyboardMarkup(</find>
       <find>or</find>
+      <find>...</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -705,22 +694,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$PROJECT_DIR$/botan.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="720" column="219" lean-forward="false" selection-start-line="720" selection-start-column="219" selection-end-line="720" selection-end-column="219" />
+        <state relative-caret-position="646">
+          <caret line="38" column="20" lean-forward="false" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
           <folding>
-            <element signature="e#25#39#0" expanded="true" />
+            <element signature="e#106#121#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/botan.py">
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="38" column="20" lean-forward="false" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
+        <state relative-caret-position="627">
+          <caret line="584" column="61" lean-forward="true" selection-start-line="584" selection-start-column="61" selection-end-line="584" selection-end-column="61" />
           <folding>
-            <element signature="e#106#121#0" expanded="true" />
+            <element signature="e#25#39#0" expanded="true" />
           </folding>
         </state>
       </provider>

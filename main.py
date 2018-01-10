@@ -109,7 +109,7 @@ def handle_text(message):
                     user_markup.row('Право наследования ещё не наступило')
                     user_markup.row('После вступления в права наследования')
                     user_markup.row('Назад к выбору типа смены')
-                    bot.send_message(message.from_user.id, '...', reply_markup=user_markup)
+                    bot.send_message(message.from_user.id, reply_markup=user_markup)
                     botan.track(botan_key, message.chat.id, message, 'Смена владельца')
 
         if message.text == 'Право наследования ещё не наступило':
@@ -163,7 +163,7 @@ def handle_text(message):
                     user_markup.row('Номер НЕ был перенесен из другой сети')
                     user_markup.row('Номер БЫЛ перенесен из другой сети')
                     user_markup.row('Назад к выбору типа смены')
-                    bot.send_message(message.from_user.id, '...', reply_markup=user_markup)
+                    bot.send_message(message.from_user.id, reply_markup=user_markup)
                     botan.track(botan_key, message.chat.id, message, 'С частного на частного клиента')
 
         if message.text == 'Номер НЕ был перенесен из другой сети':
@@ -357,7 +357,7 @@ def handle_text(message):
             user_markup.row('Исправление очевидной ошибки')
             user_markup.row('Смена документа / не очевидная ошибка')
             user_markup.row('В главное меню')
-            bot.send_message(message.from_user.id, '...', reply_markup=user_markup)
+            bot.send_message(message.from_user.id, reply_markup=user_markup)
             botan.track(botan_key, message.chat.id, message, 'Корректировка РФА')
 
         if message.text == 'Исправление очевидной ошибки':
@@ -426,7 +426,7 @@ def handle_text(message):
             user_markup.row('Остаток средств')
             user_markup.row('Запрет возврата аванс. платежа')
             user_markup.row('В главное меню')
-            bot.send_message(message.from_user.id, '...', reply_markup=user_markup)
+            bot.send_message(message.from_user.id, reply_markup=user_markup)
 
         if message.text == 'Ошибочный платеж':
             bot.send_message(message.chat.id, "ВАЖНО! Возврат ошибочного платежа может быть произведен как"
@@ -547,7 +547,7 @@ def handle_text(message):
             user_markup.row('Клиент в домашнем регионе')
             user_markup.row('Клиент в роуминге')
             user_markup.row('В главное меню')
-            bot.send_message(message.from_user.id, '...', reply_markup=user_markup)
+            bot.send_message(message.from_user.id, reply_markup=user_markup)
             botan.track(botan_key, message.chat.id, message, 'Восст закрыт ном')
 
         if message.text == 'Клиент в домашнем регионе':
@@ -594,7 +594,7 @@ def handle_text(message):
             user_markup.row('Плата за молчание')
             user_markup.row('Возврат за новую sim')
             user_markup.row('В главное меню')
-            bot.send_message(message.from_user.id, '...', reply_markup=user_markup)
+            bot.send_message(message.from_user.id, reply_markup=user_markup)
             botan.track(botan_key, message.chat.id, message, 'Нестандарт')
 
         if message.text == 'Почему необходим паспорт':
@@ -623,7 +623,7 @@ def handle_text(message):
                                               ' оказании услуг связи.\n', parse_mode="HTML")
             user_markup = telebot.types.ReplyKeyboardMarkup(True, False)
             user_markup.row('В ФЗ о Связи')
-            bot.send_message(message.from_user.id, '...', reply_markup=user_markup)
+            bot.send_message(message.from_user.id, reply_markup=user_markup)
             botan.track(botan_key, message.chat.id, message, 'Почему необходим паспорт - основа')
 
         if message.text == 'В ФЗ о Связи':
