@@ -718,12 +718,6 @@ def handle_text(message):
                                  reply_markup=hide_markup)
             botan.track(botan_key, message.chat.id, message, 'Возврат за новую sim')
 
-        else:
-            bot.send_message(message.chat.id, "Я тебя не совсем понимаю, но попрежнему хочу помочь!!!\n"
-                                              " Напиши /start чтобы"
-                                              " ознакомиться с моим меню. Если у тебя есть предложения по улучшению"
-                                              " бота - напиши своему тренеру и мы попробуем его реализовать :) ")
-
     else:
         bot.send_message(message.chat.id, "Не авторизованный пользователь, обратитесь к администратору системы "
                                           "alexander.s.alekseev@tele2.ru")
