@@ -718,6 +718,15 @@ def handle_text(message):
                                  reply_markup=hide_markup)
             botan.track(botan_key, message.chat.id, message, 'Возврат за новую sim')
 
+        if message.text == 'привет' or 'privet' or 'hi' or 'йоу' or 'Здравствуй':
+            bot.send_message(message.chat.id, 'И тебе привет мой, друг! Для начала работы открой меню '
+                                              'или напиши /start. Я постараюсь помочь тебе в твоей работе')
+            botan.track(botan_key, message.chat.id, message, 'Приветствие')
+
+        if message.text == 'уёбок' or 'хуй' or 'пёс' or 'пидор' or 'гей':
+            bot.send_message(message.chat.id, 'Сам такой')
+            botan.track(botan_key, message.chat.id, message, 'Ругань')
+
     else:
         bot.send_message(message.chat.id, "Не авторизованный пользователь, обратитесь к администратору системы "
                                           "alexander.s.alekseev@tele2.ru")
