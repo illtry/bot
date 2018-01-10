@@ -21,8 +21,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="624" column="43" lean-forward="false" selection-start-line="623" selection-start-column="0" selection-end-line="624" selection-end-column="43" />
+            <state relative-caret-position="560">
+              <caret line="629" column="71" lean-forward="true" selection-start-line="629" selection-start-column="71" selection-end-line="629" selection-end-column="71" />
               <folding>
                 <element signature="e#25#39#0" expanded="true" />
               </folding>
@@ -33,7 +33,7 @@
       <file leaf-file-name="botan.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/botan.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
+            <state relative-caret-position="629">
               <caret line="38" column="20" lean-forward="false" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
               <folding>
                 <element signature="e#106#121#0" expanded="true" />
@@ -74,6 +74,7 @@
       <find>or</find>
       <find>...</find>
       <find>user_markup.row('В главное меню')</find>
+      <find>''</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -710,7 +711,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/botan.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
+        <state relative-caret-position="629">
           <caret line="38" column="20" lean-forward="false" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
           <folding>
             <element signature="e#106#121#0" expanded="true" />
@@ -720,8 +721,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="624" column="43" lean-forward="false" selection-start-line="623" selection-start-column="0" selection-end-line="624" selection-end-column="43" />
+        <state relative-caret-position="560">
+          <caret line="629" column="71" lean-forward="true" selection-start-line="629" selection-start-column="71" selection-end-line="629" selection-end-column="71" />
           <folding>
             <element signature="e#25#39#0" expanded="true" />
           </folding>
