@@ -3,13 +3,11 @@
 
 import telebot
 import botan
-import requests
-import json
 import os
 from flask import Flask, request
 
 token = "504515728:AAHWnfcPlz8VZ3SaPKEEJ3swFo8DjcdgKtg"
-botan_key = "d6c0f3f2-3af6-4cfe-ab99-75d6cd905db7"
+bo_key = "dcbd8385-9028-44e8-8330-2c7ef54cd963"
 ids = "141240553, 28101889, 431189131, 132565429, 205582007, 121196138, 356620991, 198602379, 96930603," \
       " 457814084, 120976534, 454919985, 453312645, 387800936, 340635048, 411517564, 453693657," \
       " 499787765, 340223958, 494706931, 447398682, 477849888, 482829583, 287206886, 385569705, 491316821, 400718615," \
@@ -27,7 +25,7 @@ ids = "141240553, 28101889, 431189131, 132565429, 205582007, 121196138, 35662099
       " 503470586, 505632525, 506131843, 506754136, 507355407, 508144527, 513002766, 521729855, 531241024, 532948368," \
       " 535777530, 540873084, 547785940, 549455587, 400980475, 463009484, 436280827, 342758667, 339213503," \
       "	299271655, 96038983, 229073111,	329296550, 508133952, 474963331, 507762409, 460426622," \
-      "	466418926, 404388688, 506552514, 455283510,	393200727, 461032731, 490049044, 341542780, 434718705," \
+      "	466418926, 404388688, 506552514, 455283510, 393200727, 461032731, 490049044, 341542780, 434718705," \
       " 296928239, 452224791, 450684789, 346663264, 422921836, 501140332,509371094, 480290212, 378489218, 465116383," \
       " 440078160, 131024713, 405876444, 186169883, 498039331, 435300788, 498121512, 209346330, 231506825," \
       " 485069753, 437489739, 506129355, 476958144, 495250724, 456064746, 502532484, 492503819, 462879709," \
@@ -59,7 +57,10 @@ ids = "141240553, 28101889, 431189131, 132565429, 205582007, 121196138, 35662099
       " 354957038, 456494074, 460365145, 507965834, 277950479, 470524855, 402299995, 459921613, 465427722, 480612264," \
       " 448787109, ‎446202250, 480874850, 399042759, 489788531, 507911675, 507346294, 445967085, 314939845, 484098893," \
       " 486501362, 507706677, 464614127, 453016320, 509429593, 479724240, 476836565, 495421439, 462149416, 495789669," \
-      " 304482819, 498845433, 490850809, 502784263, 490823007, 463491884, 493530463, ‎507542732, ‎433384259, 287330546"
+      " 304482819, 498845433, 490850809, 502784263, 490823007, 463491884, 493530463, ‎507542732, ‎433384259, 287330546," \
+      " 191771121, 209934695, 489099206, 504759023, 475739887, 490600926, 401325055, 495096716, 458057257, 488690851," \
+      " 464746496, 457874344, 439952475, 496258467, 495548901, 405398599, 401855210, 505198355, 486943702, 420684272," \
+      " 477393547. 452871349, 338126451, 402207917, 461151564, 490832161, 505422967, 484524667"
 
 
 bot = telebot.TeleBot(token)
@@ -110,7 +111,7 @@ def handle_text(message):
                     user_markup.row('После вступления в права наследования')
                     user_markup.row('Назад к выбору типа смены')
                     bot.send_message(message.from_user.id, '...', reply_markup=user_markup)
-                    botan.track(botan_key, message.chat.id, message, 'Смена владельца')
+                    botan.track(bo_key, message.chat.id, message, 'Смена владельца')
 
         if message.text == 'Право наследования ещё не наступило':
                     bot.send_message(message.chat.id, "1. Попроси предъявить оригинал свидетельства о смерти владельца"
@@ -131,7 +132,7 @@ def handle_text(message):
                     hide_markup = telebot.types.ReplyKeyboardRemove()
                     bot.send_message(message.from_user.id, 'Нажмите /start для возврата в главное '
                                                            'меню', reply_markup=hide_markup)
-                    botan.track(botan_key, message.chat.id, message, 'Право наследования ещё не наступило')
+                    botan.track(bo_key, message.chat.id, message, 'Право наследования ещё не наступило')
 
         if message.text == 'После вступления в права наследования':
                     bot.send_message(message.chat.id, "1. Попроси клиента предъявить документ, удостоверяющий личность"
@@ -149,7 +150,7 @@ def handle_text(message):
                     hide_markup = telebot.types.ReplyKeyboardRemove()
                     bot.send_message(message.from_user.id, '/start для возврата в главное меню',
                                      reply_markup=hide_markup)
-                    botan.track(botan_key, message.chat.id, message, 'После вступления в права наследования')
+                    botan.track(bo_key, message.chat.id, message, 'После вступления в права наследования')
 
         if message.text == 'С частного на частного клиента':
                     bot.send_message(message.chat.id, 'ВАЖНО! Переоформление проводится при присутствии текущего'
@@ -164,7 +165,7 @@ def handle_text(message):
                     user_markup.row('Номер БЫЛ перенесен из другой сети')
                     user_markup.row('Назад к выбору типа смены')
                     bot.send_message(message.from_user.id, '...', reply_markup=user_markup)
-                    botan.track(botan_key, message.chat.id, message, 'С частного на частного клиента')
+                    botan.track(bo_key, message.chat.id, message, 'С частного на частного клиента')
 
         if message.text == 'Номер НЕ был перенесен из другой сети':
                     bot.send_message(message.chat.id, "1. Проинформируй клиента обо всех условиях услуги:"
@@ -186,7 +187,7 @@ def handle_text(message):
                     hide_markup = telebot.types.ReplyKeyboardRemove()
                     bot.send_message(message.from_user.id, 'Нажмите /start для возврата в главное меню',
                                      reply_markup=hide_markup)
-                    botan.track(botan_key, message.chat.id, message, 'Номер клиента НЕ был перенесен из другой сети')
+                    botan.track(bo_key, message.chat.id, message, 'Номер клиента НЕ был перенесен из другой сети')
 
         if message.text == 'Номер БЫЛ перенесен из другой сети':
                     bot.send_message(message.chat.id, "1. Проинформируй клиента обо"
@@ -208,7 +209,7 @@ def handle_text(message):
                     hide_markup = telebot.types.ReplyKeyboardRemove()
                     bot.send_message(message.from_user.id, 'Нажмите /start для возврата в главное меню',
                                      reply_markup=hide_markup)
-                    botan.track(botan_key, message.chat.id, message, 'Номер клиента БЫЛ перенесен из другой сети')
+                    botan.track(bo_key, message.chat.id, message, 'Номер клиента БЫЛ перенесен из другой сети')
 
         if message.text == 'Назад к выбору типа смены':
                     user_markup = telebot.types.ReplyKeyboardMarkup(True, False)
@@ -258,7 +259,7 @@ def handle_text(message):
             hide_markup = telebot.types.ReplyKeyboardRemove()
             bot.send_message(message.from_user.id, 'Нажмите /start для возврата в главное меню',
                              reply_markup=hide_markup)
-            botan.track(botan_key, message.chat.id, message, 'Подключение b2b/Юридическое лицо/Необходимые документы')
+            botan.track(bo_key, message.chat.id, message, 'Подключение b2b/Юридическое лицо/Необходимые документы')
 
         if message.text == 'ИП':
                     user_markup = telebot.types.ReplyKeyboardMarkup(True, False)
@@ -294,7 +295,7 @@ def handle_text(message):
                                               " мой почтовый ящик: alexander.s.alekseev@tele2.ru, указывая"
                                               " в заголовке письма ОС BOT. Мне очень важно значать"
                                               " Ваше мнение. Спасибо!")
-            botan.track(botan_key, message.chat.id, message, 'Помощь')
+            botan.track(bo_key, message.chat.id, message, 'Помощь')
 
         if message.text == 'Закрытие абонента':
             bot.send_message(message.chat.id, "ВАЖНО! Расторжение возможно только"
@@ -336,7 +337,7 @@ def handle_text(message):
                                               " отключения в банк самостоятельно. ", parse_mode="HTML")
             hide_markup = telebot.types.ReplyKeyboardRemove()
             bot.send_message(message.from_user.id, 'Нажмите /start для возврата в главное меню', reply_markup=hide_markup)
-            botan.track(botan_key, message.chat.id, message, 'Закрытие абонента')
+            botan.track(bo_key, message.chat.id, message, 'Закрытие абонента')
 
         if message.text == 'Корректировка РФА':
             bot.send_message(message.chat.id, "ВАЖНО! Изменение регистрационных данных клиента доступно текущему"
@@ -358,7 +359,7 @@ def handle_text(message):
             user_markup.row('Смена документа / не очевидная ошибка')
             user_markup.row('В главное меню')
             bot.send_message(message.from_user.id, '...', reply_markup=user_markup)
-            botan.track(botan_key, message.chat.id, message, 'Корректировка РФА')
+            botan.track(bo_key, message.chat.id, message, 'Корректировка РФА')
 
         if message.text == 'Исправление очевидной ошибки':
             bot.send_message(message.chat.id, "Зайди в карточку клиента. Если карточка открылась"
@@ -371,7 +372,7 @@ def handle_text(message):
                                                   " и уточни, какие параметры необходимо исправить\n", parse_mode="HTML")
             hide_markup = telebot.types.ReplyKeyboardRemove()
             bot.send_message(message.from_user.id, 'Нажмите /start для возврата в главное меню', reply_markup=hide_markup)
-            botan.track(botan_key, message.chat.id, message, 'Исправление очевидной ошибки')
+            botan.track(bo_key, message.chat.id, message, 'Исправление очевидной ошибки')
 
         if message.text == 'Смена документа / не очевидная ошибка':
             bot.send_message(message.chat.id, "1. При наличии данных предыдущего документа,"
@@ -394,7 +395,7 @@ def handle_text(message):
             hide_markup = telebot.types.ReplyKeyboardRemove()
             bot.send_message(message.from_user.id, 'Нажмите /start для возврата в главное меню',
                                  reply_markup=hide_markup)
-            botan.track(botan_key, message.chat.id, message, 'Смена документа / не очевидная ошибка')
+            botan.track(bo_key, message.chat.id, message, 'Смена документа / не очевидная ошибка')
 
         if message.text == 'Рег. форма':
             bot.send_message(message.chat.id, "ВАЖНО! Оригиналы РФА отправляются с реестром Абонентских"
@@ -418,7 +419,7 @@ def handle_text(message):
             hide_markup = telebot.types.ReplyKeyboardRemove()
             bot.send_message(message.from_user.id, 'Нажмите /start для возврата в главное меню',
                                  reply_markup=hide_markup)
-            botan.track(botan_key, message.chat.id, message, 'Рег. форма')
+            botan.track(bo_key, message.chat.id, message, 'Рег. форма')
 
         if message.text == 'Возврат средств':
             user_markup = telebot.types.ReplyKeyboardMarkup(True, False)
@@ -462,7 +463,7 @@ def handle_text(message):
             hide_markup = telebot.types.ReplyKeyboardRemove()
             bot.send_message(message.from_user.id, 'Нажмите /start для возврата в главное меню',
                                  reply_markup=hide_markup)
-            botan.track(botan_key, message.chat.id, message, 'Ошибочный платеж')
+            botan.track(bo_key, message.chat.id, message, 'Ошибочный платеж')
 
         if message.text == 'Остаток средств':
             bot.send_message(message.chat.id, "ВАЖНО! Возврат остатка денежных средств может"
@@ -510,7 +511,7 @@ def handle_text(message):
             hide_markup = telebot.types.ReplyKeyboardRemove()
             bot.send_message(message.from_user.id, 'Нажмите /start для возврата в главное меню',
                                  reply_markup=hide_markup)
-            botan.track(botan_key, message.chat.id, message, 'Остаток средств')
+            botan.track(bo_key, message.chat.id, message, 'Остаток средств')
 
         if message.text == 'Запрет возврата аванс. платежа':
             bot.send_message(message.chat.id, "1. Сообщи клиенту, что остаток денежных средств"
@@ -533,7 +534,7 @@ def handle_text(message):
             hide_markup = telebot.types.ReplyKeyboardRemove()
             bot.send_message(message.from_user.id, 'Нажмите /start для возврата в главное меню',
                                  reply_markup=hide_markup)
-            botan.track(botan_key, message.chat.id, message, 'Запрет возврата аванс. платежа')
+            botan.track(bo_key, message.chat.id, message, 'Запрет возврата аванс. платежа')
 
         if message.text == 'Восст закрыт ном':
             bot.send_message(message.chat.id, "ВАЖНО! Проведение данной операции возможно при"
@@ -548,7 +549,7 @@ def handle_text(message):
             user_markup.row('Клиент в роуминге')
             user_markup.row('В главное меню')
             bot.send_message(message.from_user.id, '...', reply_markup=user_markup)
-            botan.track(botan_key, message.chat.id, message, 'Восст закрыт ном')
+            botan.track(bo_key, message.chat.id, message, 'Восст закрыт ном')
 
         if message.text == 'Клиент в домашнем регионе':
             bot.send_message(message.chat.id, "1. Проинформируй клиента об всех условиях оказания услуги\n"
@@ -566,7 +567,7 @@ def handle_text(message):
             hide_markup = telebot.types.ReplyKeyboardRemove()
             bot.send_message(message.from_user.id, 'Нажмите /start для возврата в главное меню',
                                  reply_markup=hide_markup)
-            botan.track(botan_key, message.chat.id, message, 'Клиент в домашнем регионе')
+            botan.track(bo_key, message.chat.id, message, 'Клиент в домашнем регионе')
 
         if message.text == 'Клиент в роуминге':
             bot.send_message(message.chat.id, "ВАЖНО! Восстановление закрытого номера в роуминге возможно только"
@@ -585,7 +586,7 @@ def handle_text(message):
             hide_markup = telebot.types.ReplyKeyboardRemove()
             bot.send_message(message.from_user.id, 'Нажмите /start для возврата в главное меню',
                                  reply_markup=hide_markup)
-            botan.track(botan_key, message.chat.id, message, 'Клиент в роуминге')
+            botan.track(bo_key, message.chat.id, message, 'Клиент в роуминге')
 
         if message.text == 'Нестандарт':
             user_markup = telebot.types.ReplyKeyboardMarkup(True, False)
@@ -595,7 +596,7 @@ def handle_text(message):
             user_markup.row('Возврат за новую sim')
             user_markup.row('В главное меню')
             bot.send_message(message.from_user.id, '...', reply_markup=user_markup)
-            botan.track(botan_key, message.chat.id, message, 'Нестандарт')
+            botan.track(bo_key, message.chat.id, message, 'Нестандарт')
 
         if message.text == 'Почему необходим паспорт':
             bot.send_message(message.chat.id, '<b>ч.1 ст. 19 Гражданского Кодекса РФ</b> установлено, что гражданин'
@@ -624,7 +625,7 @@ def handle_text(message):
             user_markup = telebot.types.ReplyKeyboardMarkup(True, False)
             user_markup.row('В ФЗ о Связи')
             bot.send_message(message.from_user.id, '...', reply_markup=user_markup)
-            botan.track(botan_key, message.chat.id, message, 'Почему необходим паспорт - основа')
+            botan.track(bo_key, message.chat.id, message, 'Почему необходим паспорт - основа')
 
         if message.text == 'В ФЗ о Связи':
             bot.send_message(message.chat.id, 'Согласно <b>Федеральному Закону от 07.07.2003 №126-ФЗ «О связи»</b>'
@@ -644,7 +645,7 @@ def handle_text(message):
             hide_markup = telebot.types.ReplyKeyboardRemove()
             bot.send_message(message.from_user.id, 'Нажмите /start для возврата в главное меню',
                                  reply_markup=hide_markup)
-            botan.track(botan_key, message.chat.id, message, 'Почему необходим паспорт - дополнительно')
+            botan.track(bo_key, message.chat.id, message, 'Почему необходим паспорт - дополнительно')
 
         if message.text == 'Не прошла заявка по MNP':
             bot.send_message(message.chat.id, 'Смотрим в WD причину отказа:\n'
@@ -660,7 +661,7 @@ def handle_text(message):
             hide_markup = telebot.types.ReplyKeyboardRemove()
             bot.send_message(message.from_user.id, 'Нажмите /start для возврата в главное меню',
                                  reply_markup=hide_markup)
-            botan.track(botan_key, message.chat.id, message, 'Не прошла заявка по MNP')
+            botan.track(bo_key, message.chat.id, message, 'Не прошла заявка по MNP')
 
         if message.text == 'Плата за молчание':
             bot.send_message(message.chat.id, 'Согласно Правил оказания услуг подвижной радиотелефонной связи ООО'
@@ -694,7 +695,7 @@ def handle_text(message):
             hide_markup = telebot.types.ReplyKeyboardRemove()
             bot.send_message(message.from_user.id, 'Нажмите /start для возврата в главное меню',
                                  reply_markup=hide_markup)
-            botan.track(botan_key, message.chat.id, message, 'Плата за молчание')
+            botan.track(bo_key, message.chat.id, message, 'Плата за молчание')
 
         if message.text == 'Возврат за новую sim':
             bot.send_message(message.chat.id, 'Согласно Правил оказания услуг подвижной радиотелефонной связи'
@@ -716,16 +717,16 @@ def handle_text(message):
             hide_markup = telebot.types.ReplyKeyboardRemove()
             bot.send_message(message.from_user.id, 'Нажмите /start для возврата в главное меню',
                                  reply_markup=hide_markup)
-            botan.track(botan_key, message.chat.id, message, 'Возврат за новую sim')
+            botan.track(bo_key, message.chat.id, message, 'Возврат за новую sim')
 
         if message.text == 'привет' or message.text == 'Привет' or message.text == 'privet' or message.text == 'hi' or message.text == 'хай' or message.text == 'йоу' or message.text == 'Здравствуй' or message.text == 'здравствуй':
             bot.send_message(message.chat.id, 'И тебе привет мой, друг! Для начала работы открой меню '
                                               'или напиши /start. Я постараюсь помочь тебе в твоей работе')
-            botan.track(botan_key, message.chat.id, message, 'Приветствие')
+            botan.track(bo_key, message.chat.id, message, 'Приветствие')
 
         if message.text == 'уёбок' or message.text == 'хуй' or message.text == 'пёс' or message.text == 'пидор' or message.text == 'гей':
             bot.send_message(message.chat.id, 'Сам такой')
-            botan.track(botan_key, message.chat.id, message, 'Ругань')
+            botan.track(bo_key, message.chat.id, message, 'Ругань')
 
     else:
         bot.send_message(message.chat.id, "Не авторизованный пользователь, обратитесь к администратору системы "
