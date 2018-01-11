@@ -337,7 +337,7 @@ def handle_text(message):
                                               " отключения в банк самостоятельно. ", parse_mode="HTML")
             hide_markup = telebot.types.ReplyKeyboardRemove()
             bot.send_message(message.from_user.id, 'Нажмите /start для возврата в главное меню', reply_markup=hide_markup)
-            botan.track(bo_key, message.chat.id, message, 'Закрытие абонента')
+#            botan.track(bo_key, message.chat.id, message, 'Закрытие абонента')
 
         if message.text == 'Корректировка РФА':
             bot.send_message(message.chat.id, "ВАЖНО! Изменение регистрационных данных клиента доступно текущему"

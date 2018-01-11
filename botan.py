@@ -24,7 +24,6 @@ def make_json(message):
 
 
 def track(token, uid, message, name='Message'):
-    print(message)
     try:
         r = requests.post(
             TRACK_URL,
