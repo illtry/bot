@@ -8,6 +8,8 @@ TRACK_URL = 'https://api.botan.io/track'
 
 # Эту функцию можно модифицировать, чтобы собирать...
 # ...именно то, что нужно (или вообще ничего)
+
+
 def make_json(message):
     data = {}
     data['message_id'] = message.message_id
@@ -22,6 +24,7 @@ def make_json(message):
 
 
 def track(token, uid, message, name='Message'):
+    print(message)
     try:
         r = requests.post(
             TRACK_URL,
