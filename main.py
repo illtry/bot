@@ -733,7 +733,7 @@ def handle_text(message):
             botan.track(bo_key, message.chat.id, message, 'Эмоция')
 
     else:
-        bot.send_message(message.chat.id, "Привет не авторизованный пользователь! Обратись к своему тренеру,"
+        bot.send_message(message.chat.id, "Привет неавторизованный пользователь! Обратись к своему тренеру,"
                                           " он тебе расскажет как получить доступ :)")
 
 
