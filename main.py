@@ -728,9 +728,13 @@ def handle_text(message):
             bot.send_message(message.chat.id, 'Сам такой')
             botan.track(bo_key, message.chat.id, message, 'Ругань')
 
+        if message.text == ':)' or message.text == ')' or message.text == ':smile:' or message.text == ':о' or message.text == ':*':
+            bot.send_message(message.chat.id, ':)')
+            botan.track(bo_key, message.chat.id, message, 'Эмоция')
+
     else:
-        bot.send_message(message.chat.id, "Не авторизованный пользователь, обратитесь к администратору системы "
-                                          "alexander.s.alekseev@tele2.ru")
+        bot.send_message(message.chat.id, "Привет не авторизованный пользователь! Обратись к своему тренеру,"
+                                          " он тебе расскажет как получить доступ :)")
 
 
 @server.route("/bot", methods=['POST'])
